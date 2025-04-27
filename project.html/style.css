@@ -1,0 +1,149 @@
+ /* General Styles */
+ body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(110deg, #0a0909, hwb(0 13% 85%));
+  overflow-x: hidden;
+}
+
+/* Navigation Bar */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to right, #089c57, #056b3a);
+  padding: 15px 30px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+nav h1 {
+  color: rgb(193, 22, 22);
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  gap: 20px;
+}
+
+nav ul li {
+  color:  rgb(193, 22, 22);
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav ul li:hover {
+  color: #00e6e6;
+}
+
+/* Login Button */
+.login-btn {
+  background-color:  rgb(193, 22, 22);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.login-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(203, 30, 33, 0.4);
+  color: #fff;
+}
+
+/* Image Item */
+.two img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  margin: 40px auto;
+  display: block;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(25, 165, 102, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.two img:hover {
+  transform: scale(1.02);
+}
+
+/* Text align */
+center h2 {
+  margin: 20px 0;
+  color: #149e62;
+  font-size: 32px;
+  font-weight: 700;
+  
+  letter-spacing: 2px;
+  text-shadow: 0 2px 5px rgba(12, 12, 12, 0.3);
+}
+
+/* Glowing Button */
+.glowing-button {
+  margin: 20px 0;
+  font-size: 18px;
+  color: white;
+  background-color: #17e254;
+  padding: 15px 40px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px #30d43b, 0 0 30px #2dd639;
+}
+
+.glowing-button:hover {
+  box-shadow: 0 0 25px #09220d, 0 0 50px #33ea42, 0 0 75px #12814f;
+  transform: translateY(-3px);
+}
+
+/* Home Link */
+.home a {
+  color:  rgb(193, 22, 22);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.home a:hover {
+  color: aqua;
+}
+
+/* Screen Size */
+@media (max-width: 768px) {
+  nav {
+      flex-direction: column;
+      gap: 10px;
+  }
+
+  nav ul {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+  }
+
+  .login-btn {
+      margin-top: 10px;
+  }
+
+  .two img {
+      max-width: 90%;
+  }
+
+  center h2 {
+      font-size: 25px;
+  }
+}

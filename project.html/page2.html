@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="keyboard.png">
+    <link rel="stylesheet" href="style1.css">
+    <title>Login - Speed Typing</title>
+    
+</head>
+<body>
+    <a href="page1.html" class="back-home">← Back to Home</a>
+    <button class="audio-toggle" id="music-toggle">SOUND OFF</button>
+    <div class="container">
+        <h1>Speed Typing Login</h1>
+        <form id="form-action">
+            <div class="input-container">
+                <input type="text" id="username" name="username" placeholder=" " required>
+                <label for="username">Username</label>
+            </div>
+            <div class="input-container">
+                <input type="email" id="email" name="email" placeholder=" " required>
+                <label for="email">Email ID</label>
+            </div>
+            <div class="input-container">
+                <input type="password" id="password" name="password" placeholder=" " required>
+                <label for="password">Password</label>
+            </div>
+            <div class="actions">
+                <button type="submit" id="btn1">Log In</button>
+            </div>
+            
+        </form>
+        <div class="signup-text">
+            <p>Don't have an account?</p>
+            <button type="button" id="btn2">Sign Up</button>
+        </div>
+    </div>
+
+    <audio id="background-music" loop>
+        <source src="breath-of-life_10-minutes-320859.mp3" type="audio/mp3">
+        Your browser doesn'n support the audio .
+    </audio>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('form-action');
+            const username = document.getElementById('username');
+            const email = document.getElementById('email');
+            const password = document.getElementById('password');
+            const signUpButton = document.getElementById('btn2');
+            const musicToggle = document.getElementById('music-toggle');
+            const music = document.getElementById('background-music');
+
+            // Log In button submit
+            // Log in
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                let messages = [];
+
+                // Validate username
+                if (username.value.trim() === '') {
+                    messages.push('Username is required');
+                }
+
+                // Validate email
+                if (email.value.trim() === '') {
+                    messages.push('Email is required');
+                } else if (!validateEmail(email.value.trim())) {
+                    messages.push('Please enter a valid email address');
+                }
+
+                // Validate password
+                if (password.value.trim() === '') {
+                    messages.push('Password is required');
+                } else if (password.value.length < 6) {
+                    messages.push('Password must be at least 6 characters.');
+                }
+
+                if (messages.length > 0) {
+                    alert(messages.join('\n'));
+                } else {
+                    if (confirm(`Log In successful! Welcome back, ${username.value}! Click OK to proceed.`)) {
+                        window.location.href = 'page3.html';
+                    }
+                }
+            });
+
+            // Sign Up button click
+            // Sign in
+            signUpButton.addEventListener('click', () => {
+                let messages = [];
+
+                // Validate username
+                if (username.value.trim() === '') {
+                    messages.push('Username is required.Please enter.');
+                }
+
+                // Validate email
+                if (email.value.trim() === '') {
+                    messages.push('Email is required');
+                } else if (!validateEmail(email.value.trim())) {
+                    messages.push('Please enter a valid email address');
+                }
+
+                // Validate password
+                if (password.value.trim() === '') {
+                    messages.push('Password is required');
+                } else if (password.value.length < 6) {
+                    messages.push('Password must be at least 6 characters.');
+                }
+
+                if (messages.length > 0) {
+                    alert(messages.join('\n'));
+                } else {
+                    if (confirm(`Sign Up successful! Welcome, ${username.value}! Click OK to proceed.`)) {
+                        window.location.href = 'page3.html';
+                    }
+                }
+            });
+
+            // Audio  Status
+            musicToggle.addEventListener('click', () => {
+                if (music.paused) {
+                    music.play()
+                        .then(() => {
+                            musicToggle.textContent = 'SOUND ON';
+                        })
+                        .catch(error => {
+                            console.error('Audio playback failed:', error);
+                            alert('Audio playback failed.Please check it.');
+                        });
+                } else {
+                    music.pause();
+                    musicToggle.textContent = 'SOUND OFF';
+                }
+            });
+
+            // Set initial music volume
+            music.volume = 0.5;
+            // Email condition test //
+            function validateEmail(email) {
+                const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return re.test(email);
+            }
+        });
+    </script>
+</body>
+</html>

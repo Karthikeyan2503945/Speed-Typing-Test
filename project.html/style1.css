@@ -1,0 +1,165 @@
+
+/* General Styles */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    overflow: hidden;
+    background-image: url(loginpic.jpg.jpg); /* Sample image URL */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container */
+.container {
+    background-color: transparent;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+/* Form Heading */
+.container h1 {
+    color: #ff4d4d;
+    font-size: 25px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Input Container */
+.input-container {
+    position: relative;
+    margin: 20px 0;
+}
+
+.input-container input {
+    width: 100%;
+    padding: 12px;
+    background: #c71a1a;
+    border: none;
+    border-radius: 25px;
+    color: #333;
+    font-size: 16px;
+    outline: none;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.input-container label {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 16px;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.input-container input:focus + label,
+.input-container input:not(:placeholder-shown) + label {
+    top: -10px;
+    left: 10px;
+    font-size: 12px;
+    color: #ff4d4d;
+    background: #fff;
+    padding: 0 5px;
+    border-radius: 5px;
+}
+
+/* Buttons */
+#btn1, #btn2 {
+    background: linear-gradient(to right, #5ae64a, #3cb034);
+    color: #fff;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px #18691d;
+    margin: 10px 0;
+}
+/* Design for the box */
+#btn1:hover, #btn2:hover {
+    box-shadow: 0 0 25px #09220d, 0 0 50px #1f7226;
+    transform: translateY(-2px);
+}
+
+/* Sign Up */
+.signup-text {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #fff;
+}
+
+.signup-text button {
+    margin-top: 10px;
+}
+
+/* Audio Button */
+.audio-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease;
+}
+
+.audio-toggle:hover {
+    background: #e60000;
+}
+
+/* Back to Home Link */
+.back-home {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: #ff4d4d;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.back-home:hover {
+    background: #e60000;
+}
+
+/* Sreen Size Design */
+@media (max-width: 480px) {
+    .container {
+        padding: 20px;
+        max-width: 90%;
+    }
+
+    .container h1 {
+        font-size: 24px;
+    }
+
+    #btn1, #btn2 {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}

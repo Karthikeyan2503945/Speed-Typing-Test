@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="keyboard.png">
+    <link rel="stylesheet" href="style.css">
+    <title>Speed Typing</title>
+   
+</head>
+<body>
+    <nav>
+        <h1>SPEED TYPING</h1>
+        <ul>
+            <li class="home"><a href="#">HOME</a></li>
+            <li class="info">CONTACT US</li>
+            <li class="music-toggle" id="music-toggle">SOUND OFF</li>
+        </ul>
+        <a href="page2.html">
+            <button class="login-btn">Login</button>
+        </a>
+    </nav>
+
+    <div class="two">
+        <img src="keyboard.jpg.jpeg" alt="Typing keyboard">
+    </div>
+
+    <center>
+        <h2>WELCOME TO SPEED TYPING</h2>
+    </center>
+
+    <center>
+        <button class="glowing-button" onclick="confirmAndNavigate()">Click Here</button>
+    </center>
+    
+
+    <audio id="background-music" loop>
+        <source src="breath-of-life_10-minutes-320859.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+
+function confirmAndNavigate() {
+    if (confirm("You haven't logged in yet. Please, login to continue.")) {
+        window.location.href = './page2.html';
+    }
+}
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const contactUs = document.querySelector('.info');
+            const musicToggle = document.getElementById('music-toggle');
+            const music = document.getElementById('background-music');
+
+            // Show confirm dialog when CONTACT US is clicked
+            contactUs.addEventListener('click', () => {
+                if (confirm('Contact us at speedty@gmail.com or call +91 9489934332 Click OK to call.')) {
+                    window.location.href = 'tel:+919489934332';
+                }
+            });
+
+            // Music toggle 
+            musicToggle.addEventListener('click', () => {
+                if (music.paused) {
+                    music.play()
+                        .then(() => {
+                            musicToggle.textContent = 'SOUND ON';
+                        })
+                        .catch(error => {
+                            console.error('Audio playback failed:', error);
+                            alert('Audio playback failed.');
+                        });
+                } else {
+                    music.pause();
+                    musicToggle.textContent = 'SOUND OFF';
+                }
+            });
+
+            // Set initial music volume
+            music.volume = 0.5;
+        });
+    </script>
+</body>
+</html>
